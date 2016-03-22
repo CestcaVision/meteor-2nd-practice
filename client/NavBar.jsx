@@ -23,6 +23,7 @@ NavBar = React.createClass({
     return this.context.router.isActive("/home")?"/home":
            this.context.router.isActive("/signup")?"/signup":
            this.context.router.isActive("/account")?"/account":
+           this.context.router.isActive("/chat")?"/chat":
            this.context.router.isActive("/login")?"/login":""
   },
   render(){
@@ -33,7 +34,8 @@ NavBar = React.createClass({
       <Tab value="/home" label="主页"/>
       <Tab value={currentUser?'/account':'/signup'}
            label={currentUser?'我的账户':'注册'}/>
-      <Tab value="/login" label="登录"/>
+      <Tab value={currentUser?'/Chat':'/login'}
+           label={currentUser?'聊天':'登录'}/>
       </Tabs>
       {logOutMenu}
       </div>
